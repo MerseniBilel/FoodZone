@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25.747" height="35.209" viewBox="0 0 25.747 35.209">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="24" height="34" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="arrow_back" data-name="arrow back" transform="translate(0 1.256) rotate(-3)" opacity="0.53" clip-path="url(#clip-path)">
+    <path id="arrow_back-2" data-name="arrow back" d="M17,24a2.892,2.892,0,0,1-2.38-1.2L1.02,6.8a4.353,4.353,0,0,1,0-5.6,2.96,2.96,0,0,1,4.76,0L17,14.4,28.22,1.2a2.96,2.96,0,0,1,4.76,0,4.353,4.353,0,0,1,0,5.6l-13.6,16A2.892,2.892,0,0,1,17,24Z" transform="translate(24 0) rotate(90)" fill="#7f7f7f"/>
+  </g>
+</svg>
