@@ -1,6 +1,6 @@
  
 # FoodZone Project  ![logo](https://user-images.githubusercontent.com/57067060/69011032-54aa9100-0966-11ea-95d4-f1879d9c6fa1.png )
-#### Team Name : Area_51 
+
 #### Team Members :
 1. Merseni Bilel
 2. Sayeh ghazi
