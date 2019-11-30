@@ -36,8 +36,12 @@ The top-level management who owns the food business will be using the database. 
 3. amount of business is made on daily basis
 4. the number delivery of items is being carried out
 
-### Our Home page template:
-![Web 1920 – 1](https://user-images.githubusercontent.com/57067060/69013971-e5449980-0985-11ea-8a19-b249ca88ae4f.jpg)
+### pre_index template:
+![preIndex](https://user-images.githubusercontent.com/57067060/69900717-3f2a6380-1377-11ea-991f-a9ca9a308c69.jpg)
+
+### index template:
+
+![home_page_desgin](https://user-images.githubusercontent.com/57067060/69900728-5bc69b80-1377-11ea-990d-f874ba4a13ca.jpg)
 
 ### Project Source:
 https://1000projects.org/food-ordering-management-system-php-mysql-project.html
