@@ -2,48 +2,60 @@
     <head>
     <title>Register</title>
     <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/loginc.css" class="css">
+    <link rel="stylesheet" href="css/style.css" class="css">
     </head>
-    <body class="text-center">
-    <?php 
-    
-    if(@$_GET['msg']==true)
-    {
-?>
-    <script>alert('<?= $_GET['msg']?>');</script>
-<?php
-    }
-?>
+    <body>
+   
+
       <div class="container">
-      <div class="shadow-lg p-3 mb-5 bg-white rounded p-5 m-5">
-<form name="f" method="POST" action="create.php">
-      <img src="logo.png" alt=""><br><br>
-          <h1 style="text-align:center">Create your account</h1><br><br>
+      <div class="shadow-lg bg-white rounded testmarg">
+      <form action="create.php" method="POST">
+      <div class="text-center">
+      <img src="image/logo.png" alt="FoodZone"><br><br>
+          <h1>Create your account</h1><br><br>
+          </div>
             <div class="form-group">
             <label for="nom"> Name </label>
-            <input style="text-align:center" type="text" name="nom" placeholder="Your name*" class="form-control" required>
+            <input type="text" name="nom" placeholder="Your name*" class="form-control" required>
+            <span class="text-danger"><?= @$_GET['name_error']; ?></span>  
             </div>
+
             <div class="form-group">
             <label for="tel"> Phone </label>
-            <input style="text-align:center" type="text" name="tel" placeholder="Your phone*" class="form-control" required>
+            <input type="text" name="tel" placeholder="Your phone*" class="form-control" required>
+            <span class="text-danger"><?= @$_GET['tel_error']; ?></span>  
             </div>
+
             <div class="form-group">
             <label for="adresse"> Adresse </label>
-            <input style="text-align:center" type="text" name="adresse" placeholder="Your adresse*" class="form-control" required>
+            <input type="text" name="adresse" placeholder="Your adresse*" class="form-control" required>
             </div>
+
             <div class="form-group">
             <label for="email"> Email </label>
-            <input style="text-align:center" type="text" name="email" placeholder="example@example.com*" class="form-control" required>
+            <input type="text" name="email" placeholder="example@example.com*" class="form-control" required>
+            <span class="text-danger"><?= @$_GET['email_error']; ?></span>  
             </div>
+
             <div class="form-group">
             <label for="mdp"> Password </label>
-            <input style="text-align:center" type="password" name="mdp" placeholder="Password*" class="form-control" required>
+            <input type="password" name="mdp" placeholder="Password*" class="form-control" required>
+            <span class="text-danger"><?= @$_GET['mdp1_error']; ?></span>  
             </div>
-            <div style="text-align:center">
-            <button  type="submit" class="btn btn-primary" >Valider</button>&nbsp;&nbsp;&nbsp;&nbsp;
-            <button  type="reset" class="btn btn-danger" >Annuler</button>
+
+            <div class="form-group">
+            <label for="mdp2"> Confirm Password </label>
+            <input type="password" name="mdp2" placeholder="Confirm Password*" class="form-control" required>
+            <span class="text-danger"><?= @$_GET['mdp2_error']; ?></span>  
+            </div>
+
+            <div>
+            <button  type="submit" class="btn btn-primary btn-shadow btn-lg" >Valider</button>&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             </form>
-      </div></div>
+      </div>
+      </div>
       <script src="bootstrap4/js/bootstrap.min.js"></script>
             </body>
 </html>

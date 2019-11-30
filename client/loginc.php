@@ -6,27 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css" class="css">
+    <link rel="stylesheet" href="css/loginc.css" class="css">
+    <link rel="stylesheet" href="css/style.css" class="css">
 </head>
-<body class="text-center">
-    <?php 
-    
-        if(@$_GET['msg']==true)
-        {
-    ?>
-        <script>alert('<?= $_GET['msg']?>');</script>
-    <?php
-        }
-    ?>
+<body>
+    <div class="text-center">
+<?php
+if(@$_GET['success'] == 'create') {?>
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Success!</strong> The customer is created successfully.
+        </div>
+    <?php } 
+
+if(@$_GET['error'] == 'wrong') {?>
+        <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Wrong!</strong> The email and password you entered did not match our records. Please double-check and try again.
+        </div>
+    <?php } ?>
+    </div>
+
     <div class="container">
-    <div class="shadow-lg p-3 mb-5 bg-white rounded p-5 m-5">
+    <div class="shadow-lg bg-white rounded testmarg">
     <form name="login" method="POST" action="verifloginc.php">
-    <img src="logo.png" alt=""><br><br>
+    <div class="text-center">
+    <img src="image/logo.png" alt=""><br><br>
     <h1>Log in to Food Zone</h1><br><br>
+    </div>
+        <span class="text-danger"><?= @$_GET['msg'] ?></span><br>
+        <div>
         <label for="email">Email</label><br>
-        <input style="text-align:center" class="form-control" type="text" name="email" placeholder="example@example.com" required><br>
+        <input class="form-control" type="text" name="email" placeholder="example@example.com" required><br>
+        </div>
+        <div>
         <label for="mdp">Password</label><br>
-        <input style="text-align:center" class="form-control" type="password" name="mdp" placeholder="********" required><br>
-        <button class="btn btn-primary" type="submit">Log in</button><br><br><br>
+        <input class="form-control" type="password" name="mdp" placeholder="********" required><br>
+        </div>
+        <div class="mb-2">
+        <button class="btn btn-primary btn-shadow btn-lg" type="submit">Log in</button><br><br>
+        </div>
         <p>New around here? <a href="register.php">sign up now »</a></p>
     </form>
     </div>

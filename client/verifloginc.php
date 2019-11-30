@@ -1,16 +1,24 @@
 <?php
-session_start();
-include 'dbconnexion.php';
+
+include 'class/client.class.php';
+
+if(!empty($_POST)){
+    
 $email=$_POST['email'];
 $mdp=$_POST['mdp'];
 
-$rep= $cnx ->query("SELECT * FROM customer WHERE email='$email' and pwd='$mdp'");
-$data = $rep->fetch();
-
-if($data!=null){
+$test = new Client;
+$x = $test->verifCnx($email,$mdp);
+$data = $x->fetchAll();
+if ($data!=null){
+    session_start();    
     $_SESSION['user']=$email;
-    header('Location: http://localhost/foodzone/home.php');}
-else
-    {
-        header('Location: http://localhost/foodzone/loginc.php?msg=Please enter correct email and password');}
+    header('Location:index.php?success=done');
+}
+else{
+header('Location:loginc.php?error=wrong');
+}
+}
+
+
 ?>
