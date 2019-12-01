@@ -91,7 +91,7 @@ session_start();
                         </li>
                         <div class="d-flex flex-lg-row flex-column">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about.html">About</a>
@@ -145,7 +145,7 @@ session_start();
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="reservation.html">Sign Up</a>
+                                <a class="nav-link" href="register.php">Sign Up</a>
                             </li>
                             <?php } ?>
                         </div>
