@@ -38,7 +38,7 @@
     ?>
 
 </table>
-<a href="" class="btn btn-primary ">ajouter vehicule </a>
+<a href="ajout.php" class="btn btn-primary ">ajouter vehicule </a>
 </div>
 
     
