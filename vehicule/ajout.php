@@ -11,7 +11,7 @@
     <div class="container"> 
     <fieldset>
         <legend>ajouter une véhicule svp ! </legend>
-        <form action="store.php">
+        <form action="store.php" method="POST">
 
         <div class="form-group">
         <label>ID</label>
