@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 17 nov. 2019 à 11:21
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 04, 2019 at 10:07 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `foodzone`
+-- Database: `foodzone`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `chariot`
+-- Table structure for table `chariot`
 --
 
 DROP TABLE IF EXISTS `chariot`;
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `chariot` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `clients`
+-- Table structure for table `clients`
 --
 
 DROP TABLE IF EXISTS `clients`;
@@ -51,16 +51,27 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `cid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `pwd` varchar(30) NOT NULL,
+  `pwd` varchar(100) NOT NULL,
   `phonenumber` int(11) NOT NULL,
   `adresse` text NOT NULL,
+  `img` varchar(200) NOT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`cid`, `name`, `email`, `pwd`, `phonenumber`, `adresse`, `img`) VALUES
+(7, 'ghazi', 'test@live.fr', '$2y$10$1MIVQ1gYAcABkz8f9sAtfOPspw0lUBwAjUB6sxZlDjId3FiQV03W.', 99758599, 'dqsdq', 'profilpic/1575452683_wallhaven-953pgd.jpg'),
+(8, 'test', 'rhouma@gmail.com', '$2y$10$Ad2vctsY1XgaUwj306xpdOrEuqvRJsr/55RrJWZFAheOJXdBkBCce', 24935414, 'test', 'profilpic/1575453533_wallhaven-nkx9r7.jpg'),
+(9, 'bilel', 'bilel@test.com', '$2y$10$MJRf3vS63j.hwum4c.dgJ.eGfgHDeseGCz1Daxuj14MSfdwg2trJO', 26248366, 'bilel', 'profilpic/1575453615_default-avatar.jpg'),
+(10, 'Sayeh Ghazi', 'ghazisayeh01@gmail.com', '$2y$10$HybYaWwE10ChUKP7HHUJMOZsF369LGsdHR9jA8KKnhCHofsRqfNGe', 99758599, 'Carthage Byrsa', 'profilpic/1575453717_IMG_4682.JPG');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `employé`
+-- Table structure for table `employé`
 --
 
 DROP TABLE IF EXISTS `employé`;
@@ -76,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `employé` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ordre`
+-- Table structure for table `ordre`
 --
 
 DROP TABLE IF EXISTS `ordre`;
@@ -98,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `ordre` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `produits`
+-- Table structure for table `produits`
 --
 
 DROP TABLE IF EXISTS `produits`;
@@ -114,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `produits` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `véhicule`
+-- Table structure for table `véhicule`
 --
 
 DROP TABLE IF EXISTS `véhicule`;
@@ -126,18 +137,18 @@ CREATE TABLE IF NOT EXISTS `véhicule` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `chariot`
+-- Constraints for table `chariot`
 --
 ALTER TABLE `chariot`
   ADD CONSTRAINT `chariot_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `clients` (`cid`) ON UPDATE CASCADE,
   ADD CONSTRAINT `chariot_ibfk_2` FOREIGN KEY (`pid`) REFERENCES `produits` (`pid`) ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `ordre`
+-- Constraints for table `ordre`
 --
 ALTER TABLE `ordre`
   ADD CONSTRAINT `ordre_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `produits` (`pid`) ON UPDATE CASCADE,
