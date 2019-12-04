@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>admin panel</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../admin_dashboard/dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="../admin_dashboard/dashboard/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-dark">
+
+  <div class="container" style="padding: 9%;">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header text-center"><img src="logo.png" alt="logo"></div>
+      <div class="card-body">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required="required">
+              <label for="inputEmail">Email address</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password" id="inputpass" name="password" class="form-control" placeholder="your password" required="required">
+              <label for="inputpass">Password</label>
+            </div>
+          </div>
+
+          <button class="btn btn-danger btn-block" type="submit" name="admin">Dashboard</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../admin_dashboard/dashboard/vendor/jquery/jquery.min.js"></script>
+  <script src="../admin_dashboard/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../admin_dashboard/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</body>
+
+</html>
