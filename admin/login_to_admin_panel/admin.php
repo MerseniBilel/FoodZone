@@ -5,10 +5,14 @@ $pass = 'foodzoneadmin';
 
 //session_start();
     include 'classes/admin.class.php';
-
-    /*if(isset($_SESSION['name'])!="") {
-        header("Location: dashboard.php");
-    }*/
+    session_start();
+    if(isset($_SESSION['email'])!="") {
+        if($_SESSION['type'] == "admin"){
+            header("Location: ../admin_dashboard/index.php");
+        }else{
+            header("Location: ../empl_dashboard/index.php");
+        }
+    }
 
    if (isset($_POST['admin'])) {
         $email = $_POST['email'];
@@ -31,10 +35,16 @@ $pass = 'foodzoneadmin';
         {
             $auth_error = 'Incorrect Email or Password!!!';
         } else {
-            /*session_start();
-            $_SESSION['username'] = $auth['username'];
-            $_SESSION['email'] = $auth['email'];*/
-            header("Location: ../admin_dashboard/dashboard/index.php");
+            session_start();
+            $_SESSION['email'] = $rep['email'];
+            $_SESSION['type'] = $rep['type'];
+
+            var_dump($_SESSION);
+            if($rep['type'] =="admin"){
+                header("Location: ../admin_dashboard/index.php");
+            }else{
+                header("Location: ../empl_dashboard/index.php");
+            }
         }
     }
 
