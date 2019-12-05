@@ -14,9 +14,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="client/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="client/vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="client/vendor/owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css">
@@ -31,7 +31,7 @@ session_start();
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="client/css/style.css">
 
 
 
@@ -39,7 +39,7 @@ session_start();
 
 <body id="Index" data-spy="scroll" data-target="#navbar" class="static-layout">
     <div id="side-nav" class="sidenav">
-        <a href="javascript:void(0)" id="side-nav-close">&times;</a>
+        <a href="client/javascript:void(0)" id="side-nav-close">&times;</a>
 
         <div class="sidenav-content">
             <p>
@@ -52,7 +52,7 @@ session_start();
         </div>
     </div>
     <div id="side-search" class="sidenav">
-        <a href="javascript:void(0)" id="side-search-close">&times;</a>
+        <a href="client/javascript:void(0)" id="side-search-close">&times;</a>
         <div class="sidenav-content">
             <form action="">
 
@@ -76,7 +76,7 @@ session_start();
         <nav id="navbar-header" class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
-                    <img src="img/logo.png" alt="">
+                    <img src="client/img/logo.png" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -111,7 +111,7 @@ session_start();
                     </ul>
 
                     <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
-                        <img src="img/logo.png" alt="">
+                        <img src="client/img/logo.png" alt="">
                     </a>
                     <ul class="navbar-nav d-flex justify-content-between">
                         <div class="d-flex flex-lg-row flex-column">
@@ -131,26 +131,26 @@ session_start();
                             ?>
 
                             <li class="nav-item">
-                            <img src="<?php echo $_SESSION['img']; ?>"  style="width:30px; height:30px; border-radius:50%;">
+                            <img src="client/<?php echo $_SESSION['img']; ?>"  style="width:40px; height:40px; border-radius:50%;">
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link"><?php echo $_SESSION['name']; ?></a>
+                                <a href="client/profil.php" class="nav-link"><?php echo $_SESSION['name']; ?></a>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="logout.php?logout">Logout</a>
+                                <a class="nav-link" href="client/logout.php?logout">Logout</a>
                             </li>
                             <?php }else {?>
 
                            
 
                             <li class="nav-item">
-                                <a class="nav-link" href="loginc.php">Login</a>
+                                <a class="nav-link" href="client/loginc.php">Login</a>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="register.php">Sign Up</a>
+                                <a class="nav-link" href="client/register.php">Sign Up</a>
                             </li>
                             <?php } ?>
                         </div>
@@ -193,13 +193,13 @@ session_start();
                     <div class="col-lg-6 hero-right">
                         <div class="owl-carousel owl-theme hero-carousel">
                             <div class="item">
-                                <img class="img-fluid" src="img/hero-1.jpg" alt="">
+                                <img class="img-fluid" src="client/img/hero-1.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img class="img-fluid" src="img/hero-2.jpg" alt="">
+                                <img class="img-fluid" src="client/img/hero-2.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img class="img-fluid" src="img/hero-3.jpg" alt="">
+                                <img class="img-fluid" src="client/img/hero-3.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -211,7 +211,7 @@ session_start();
                 <div class="section-content">
                     <div class="row">
                         <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2"
-                            style="background-image: url(img/hero-2.jpg);">
+                            style="background-image: url(client/img/hero-2.jpg);">
 
                         </div>
                         <div class="col-sm-7 py-5 pl-md-0 pl-4">
@@ -262,12 +262,12 @@ session_start();
                             </div>
                         </div>
                         <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                            <img src="img/steak.jpg" alt="" class="img-fluid shadow w-100">
+                            <img src="client/img/steak.jpg" alt="" class="img-fluid shadow w-100">
                         </div>
                     </div>
                     <div class="row mt-5">
                         <div class="col-lg-5 col-md-6 align-self-center order-2 order-md-1 mt-4 mt-md-0">
-                            <img src="img/salmon-zucchini.jpg" alt="" class="img-fluid shadow w-100">
+                            <img src="client/img/salmon-zucchini.jpg" alt="" class="img-fluid shadow w-100">
                         </div>
                         <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center order-1 order-md-2 py-5">
                             <h2 class="special-number">02.</h2>
@@ -309,7 +309,7 @@ session_start();
                             </div>
                             <div class="menus d-flex align-items-center">
                                 <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
+                                    <img class="img-fluid" src="client/img/breakfast-1.jpg" alt="">
                                 </div>
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
@@ -325,7 +325,7 @@ session_start();
                             </div>
                             <div class="menus d-flex align-items-center">
                                 <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
+                                    <img class="img-fluid" src="client/img/breakfast-1.jpg" alt="">
                                 </div>
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
@@ -341,61 +341,7 @@ session_start();
                             </div>
                             <div class="menus d-flex align-items-center">
                                 <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 menu-wrap">
-                            <div class="heading-menu">
-                                <h3 class="text-center mb-5">Breakfast</h3>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
+                                    <img class="img-fluid" src="client/img/breakfast-1.jpg" alt="">
                                 </div>
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
@@ -417,7 +363,7 @@ session_start();
                             </div>
                             <div class="menus d-flex align-items-center">
                                 <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
+                                    <img class="img-fluid" src="client/img/breakfast-1.jpg" alt="">
                                 </div>
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
@@ -433,7 +379,7 @@ session_start();
                             </div>
                             <div class="menus d-flex align-items-center">
                                 <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
+                                    <img class="img-fluid" src="client/img/breakfast-1.jpg" alt="">
                                 </div>
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
@@ -449,7 +395,61 @@ session_start();
                             </div>
                             <div class="menus d-flex align-items-center">
                                 <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
+                                    <img class="img-fluid" src="client/img/breakfast-1.jpg" alt="">
+                                </div>
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Egg Sandwich</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-muted menu-price">$30</h4>
+                                        </div>
+                                    </div>
+                                    <p>Meat Ball, Mie</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 menu-wrap">
+                            <div class="heading-menu">
+                                <h3 class="text-center mb-5">Breakfast</h3>
+                            </div>
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="client/img/breakfast-1.jpg" alt="">
+                                </div>
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Egg Sandwich</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-muted menu-price">$30</h4>
+                                        </div>
+                                    </div>
+                                    <p>Meat Ball, Mie</p>
+                                </div>
+                            </div>
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="client/img/breakfast-1.jpg" alt="">
+                                </div>
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>Egg Sandwich</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-muted menu-price">$30</h4>
+                                        </div>
+                                    </div>
+                                    <p>Meat Ball, Mie</p>
+                                </div>
+                            </div>
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src="client/img/breakfast-1.jpg" alt="">
                                 </div>
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
@@ -471,7 +471,7 @@ session_start();
         <!-- End of menu Section -->
         <!-- Testimonial Section-->
         <section id="gtco-testimonial" class="overlay bg-fixed section-padding"
-            style="background-image: url(img/testi-bg.jpg);">
+            style="background-image: url(client/img/testi-bg.jpg);">
             <div class="container">
                 <div class="section-content">
                     <div class="heading-section text-center">
@@ -518,7 +518,7 @@ session_start();
                     <div class="row">
                         <div class="col-md-3">
                             <div class="team-card mb-5">
-                                <img class="img-fluid" src="img/chef-1.jpg" alt="">
+                                <img class="img-fluid" src="client/img/chef-1.jpg" alt="">
                                 <div class="team-desc">
                                     <h4 class="mb-0">Aaron Patel</h4>
                                     <p class="mb-1">CEO</p>
@@ -549,7 +549,7 @@ session_start();
                         </div>
                         <div class="col-md-3">
                             <div class="team-card mb-5">
-                                <img class="img-fluid" src="img/chef-2.jpg" alt="">
+                                <img class="img-fluid" src="client/img/chef-2.jpg" alt="">
                                 <div class="team-desc">
                                     <h4 class="mb-0">Daniel Tebas</h4>
                                     <p class="mb-1">Chef</p>
@@ -580,7 +580,7 @@ session_start();
                         </div>
                         <div class="col-md-3">
                             <div class="team-card mb-5">
-                                <img class="img-fluid" src="img/chef-3.jpg" alt="">
+                                <img class="img-fluid" src="client/img/chef-3.jpg" alt="">
                                 <div class="team-desc">
                                     <h4 class="mb-0">Jon Snow</h4>
                                     <p class="mb-1">Chef</p>
@@ -611,7 +611,7 @@ session_start();
                         </div>
                         <div class="col-md-3">
                             <div class="team-card mb-5">
-                                <img class="img-fluid" src="img/chef-3.jpg" alt="">
+                                <img class="img-fluid" src="client/img/chef-3.jpg" alt="">
                                 <div class="team-desc">
                                     <h4 class="mb-0">Jon Snow</h4>
                                     <p class="mb-1">Chef</p>
@@ -648,7 +648,7 @@ session_start();
 
         <!-- Reservation Section -->
         <section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay"
-            style="background-image: url(img/reservation-bg.jpg);">
+            style="background-image: url(client/img/reservation-bg.jpg);">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
@@ -688,7 +688,7 @@ session_start();
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="footer-widget pr-lg-5 pr-0">
-                            <img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">
+                            <img src="client/img/logo.png" class="img-fluid footer-logo mb-3" alt="">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et obcaecati quisquam id sit
                                 omnis explicabo voluptate aut placeat, soluta, nisi ea magni facere, itaque incidunt
                                 modi? Magni, et voluptatum dolorem.</p>
@@ -749,17 +749,17 @@ session_start();
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="vendor/bootstrap/popper.min.js"></script>
-    <script src="vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="vendor/select2/select2.min.js "></script>
-    <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="client/vendor/bootstrap/popper.min.js"></script>
+    <script src="client/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="client/vendor/select2/select2.min.js "></script>
+    <script src="client/vendor/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
-    <script src="vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+    <script src="client/vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Main JS -->
-    <script src="js/app.min.js "></script>
+    <script src="client/js/app.min.js "></script>
 </body>
 
 </html

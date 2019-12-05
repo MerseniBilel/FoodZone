@@ -8,17 +8,21 @@ if(!empty($_POST)){
 
 
     $client = new Client;
-    $x = $client->verifCnx($email);
+    $x = $client->verifExist($email);
     
     if ($data = $x->fetch()){
         if(password_verify($mdp,$data['pwd'])){
             session_start(); 
             $_SESSION['name'] = $data['name'];
+            $_SESSION['email'] = $data['email'];
+            $_SESSION['tel'] = $data['phonenumber'];
+            $_SESSION['adr'] = $data['adresse'];
             $_SESSION['img'] = $data['img'];
-           header('Location:index.php?success=done');
+           header('Location:../index.php?success=done');
+    }else{
+        header('Location:loginc.php?error=wrong');
     }
-}
-else{
+}else{
     header('Location:loginc.php?error=wrong');
 }
 }
