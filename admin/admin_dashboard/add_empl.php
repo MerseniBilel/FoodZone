@@ -1,83 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    include 'dash_classes/admin.class.php';
 
-<head>
+    if(isset($_POST['submit'])){
+      $email = $_POST['email'];
+      $name = $_POST['name'];
+      $password = $_POST['password'];
+      $passwordc = $_POST['passwordagain'];
+      $phone = $_POST['phone'];
+      $type = $_POST['type'];
+      
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $email_error = "Not A Valid Email";
+        goto prob;
+    }
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <title>Add Employe</title>
+    if(strlen($phone) < 8) {
+      $phone_error = "your phone must be 8 Characters";
+      goto prob;
+    }
 
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    if(strlen($password) < 6) {
+      $password_error = "Password Must Be 6 Characters";
+      goto prob;
+    }
 
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+    if($password != $passwordc) {
+      $cpassword_error = "Password and Confirm Password doesn't match";
+      goto prob;
+    }
 
-</head>
+    if($type == "Select type"){
+      $type_error = "You must select a type";
+      goto prob;
+    }
+    $admin = new Adminstrator;
 
-<body class="bg-dark">
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $rep = $admin->add_emplye($name,$phone,$email,$hashed_password,$type);
+    if($rep){
+      $admin->send_email($name,$email,$password);
+      echo "<script>window.location.assign('index.php')</script>";
+    }
 
-  <div class="container" style="padding: 9%;">
-    <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Add an Employe</div>
-      <div class="card-body">
-        <form>
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
-                  <label for="firstName">First name</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
-                  <label for="lastName">Last name</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
-              <label for="inputEmail">Email address</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-row">
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-                  <label for="inputPassword">Password</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-label-group">
-                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
-                  <label for="confirmPassword">Confirm password</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-block" href="login.html">Register</a>
-        </form>
-        
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-</body>
-
-</html>
+    }
+  prob:
+include 'add_empl.phtml';

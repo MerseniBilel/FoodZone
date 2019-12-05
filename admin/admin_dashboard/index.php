@@ -60,7 +60,7 @@ if(isset($_SESSION['email']) == ""){
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">add employe</a>
+          <a class="dropdown-item" href="add_empl.php">add employe</a>
           <a class="dropdown-item" href="#">Add product</a>
           <a class="dropdown-item" href="cars.php">Add car</a>
           <a class="dropdown-item" href="#">See orders</a>
@@ -211,11 +211,11 @@ if(isset($_SESSION['email']) == ""){
   <script src="../style/vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="style/js/sb-admin.min.js"></script>
+  <script src="../style/js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="style/js/demo/datatables-demo.js"></script>
-  <script src="style/js/demo/chart-area-demo.js"></script>
+  <script src="../style/js/demo/datatables-demo.js"></script>
+  <script src="../style/js/demo/chart-area-demo.js"></script>
 
 </body>
 

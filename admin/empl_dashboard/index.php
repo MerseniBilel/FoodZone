@@ -210,11 +210,11 @@ if(isset($_SESSION['email']) == ""){
   <script src="../style/vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="style/js/sb-admin.min.js"></script>
+  <script src="../style/js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="style/js/demo/datatables-demo.js"></script>
-  <script src="style/js/demo/chart-area-demo.js"></script>
+  <script src="../style/js/demo/datatables-demo.js"></script>
+  <script src="../style/js/demo/chart-area-demo.js"></script>
 
 </body>
 
