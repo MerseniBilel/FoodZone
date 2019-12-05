@@ -62,7 +62,7 @@ if(isset($_SESSION['email']) == ""){
           <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">add employe</a>
           <a class="dropdown-item" href="#">Add product</a>
-          <a class="dropdown-item" href="#">Add car</a>
+          <a class="dropdown-item" href="cars.php">Add car</a>
           <a class="dropdown-item" href="#">See orders</a>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
