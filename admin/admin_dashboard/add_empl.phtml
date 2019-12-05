@@ -20,18 +20,26 @@
 
 </head>
 <body class="bg-dark">
-<?php if (isset($auth_error)): ?>
-  <div class="alert alert-danger alert-dismissible fade show">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <?= $auth_error ?>
-  </div>
-<?php endif ?>
-
   <div class="container" style="padding: 9%;">
     <div class="card card-register mx-auto mt-5">
-      <div class="card-header text-center"><img src="logo.png" alt="logo"></div>
+      <div class="card-header text-center"><img src="../style/img/logo.png" alt="logo"></div>
       <div class="card-body">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" id="inputName" name="name" value="<?= $_POST['name'] ?? '' ?>"class="form-control" placeholder="Name" required="">
+              <label for="inputName">Name</label>
+              <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="number" id="inputphn" name="phone" value="<?= $_POST['phone'] ?? '' ?>"class="form-control" placeholder="phone" required="">
+              <label for="inputphn">phone</label>
+              <span class="text-danger"><?php if (isset($phone_error)) echo $phone_error; ?></span>
+            </div>
+          </div>
 
           <div class="form-group">
             <div class="form-label-group">
@@ -49,7 +57,23 @@
             </div>
           </div>
 
-          <button class="btn btn-danger btn-block" type="submit" name="admin">Dashboard</button>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password" id="inputpassagain" name="passwordagain" class="form-control" placeholder="your password again" required="">
+              <label for="inputpassagain">Confirm Password</label>
+              <span class="text-danger"><?php if (isset($cpassword_error)) echo $cpassword_error; ?></span>
+            </div>
+            <div class="form-group">
+            <div class="form-label-group">
+                <select class="browser-default custom-select mt-3 mb-3" name="type">
+                    <option selected>Select type</option>
+                    <option value="admin">admin</option>
+                    <option value="employe">employe</option>
+                </select>
+                <span class="text-danger"><?php if (isset($type_error)) echo $type_error; ?></span>
+            </div>
+            </div>
+          <button class="btn btn-danger btn-block" type="submit" name="submit">add employe</button>
         </form>
         
       </div>
