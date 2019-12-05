@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courgette&display=swap">
     <!-- External CSS -->
-    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="client/vendor/bootstrap/bootstrap.min.css">
     <!--My SyleSheet-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="client/css/style.css">
     <title>Home</title>
 </head>
 
@@ -22,6 +22,6 @@
     
     
 </body>
-<script src="js/app.min.js"></script>
+<script src="client/js/app.min.js"></script>
 
 </html>

@@ -5,8 +5,12 @@
         session_start();
         session_destroy();
         unset($_SESSION['name']);
-        header('location:index.php');
+        unset($_SESSION['email']);
+        unset($_SESSION['tel']);
+        unset($_SESSION['adresse']);
+        unset($_SESSION['img']);
+        header('location:../index.php');
     }else{
-        header('location:index.php');
+        header('location:../index.php');
     }
 ?>
