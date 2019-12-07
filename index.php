@@ -1,5 +1,12 @@
 <?php 
+require "client/class/dbconnect.class.php";
 session_start();
+$rq = "SELECT * FROM produits ORDER BY pid LIMIT 10";
+$db = new BasesDonnees;
+$pr = $db->connectDB(); 
+$result = $pr->prepare($rq);
+$result->execute();
+$data = $result->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +36,8 @@ session_start();
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <script src="https://use.fontawesome.com/5b67370c4c.js"></script>
+
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -90,23 +99,13 @@ session_start();
                             <a class="nav-link" id="side-nav-open" href="#"></a>
                         </li>
                         <div class="d-flex flex-lg-row flex-column">
-                            <li class="nav-item active">
+                            <li class="nav-item active mr-5">
                                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mr-5">
                                 <a class="nav-link" href="about.html">About</a>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Special Dishes
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="special-dishes.html">Beef Steak Sauce</a>
-                                    <a class="dropdown-item" href="special-dishes.html">Salmon Zucchini</a>
-                                </div>
-                            </li>
                         </div>
                     </ul>
 
@@ -121,9 +120,8 @@ session_start();
                                     Menu
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="special-dishes.html">Breakfast</a>
-                                    <a class="dropdown-item" href="special-dishes.html">Lunch</a>
-                                    <a class="dropdown-item" href="special-dishes.html">Dinner</a>
+                                    <a class="dropdown-item" href="breakfast.php">Breakfast</a>
+                                    <a class="dropdown-item" href="lundin.php">Lunch/Dinner</a>
                                 </div>
                             </li>
                             <?php 
@@ -140,6 +138,17 @@ session_start();
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="client/logout.php?logout">Logout</a>
+                            </li>
+                            <li class="nav-item ml-5">
+                            <style>
+                                .btn-outline-danger:hover {
+                                    color:white !important;
+                                }
+                            </style>
+                                <a href="#" class="btn btn-outline-danger">
+                                    <i class="fa fa-shopping-cart" style="opacity:1"></i>
+                                    &nbsp;&nbsp;<span class="badge badge-sm-light" id="success"></span>
+                                </a>
                             </li>
                             <?php }else {?>
 
@@ -303,170 +312,38 @@ session_start();
                         </div>
                     </div>
                     <div class="row">
+                    <?php 
+                    while ($data = $result->fetch()) {
+                    ?>
                         <div class="col-lg-4 menu-wrap">
-                            <div class="heading-menu">
-                                <h3 class="text-center mb-5">Breakfast</h3>
-                            </div>
                             <div class="menus d-flex align-items-center">
                                 <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
+                                    <img class="img-fluid" src="admin/uploads/<?php echo $data['file'] ?>" alt="">
                                 </div>
                                 <div class="text-wrap">
                                     <div class="row align-items-start">
                                         <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
+                                            <h4><a href="prod_detail.php?id=<?php echo $data['pid'] ?>"><?php echo $data['name'] ?></a></h4>
                                         </div>
                                         <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
+                                            <h4 class="text-muted menu-price"><?php echo $data['price'] ?><sup>TND</sup></h4>
                                         </div>
                                     </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
+                                    <p><?php echo $data['description']?></p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 menu-wrap">
-                            <div class="heading-menu">
-                                <h3 class="text-center mb-5">Breakfast</h3>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 menu-wrap">
-                            <div class="heading-menu">
-                                <h3 class="text-center mb-5">Breakfast</h3>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                            <div class="menus d-flex align-items-center">
-                                <div class="menu-img rounded-circle">
-                                    <img class="img-fluid" src="img/breakfast-1.jpg" alt="">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="row align-items-start">
-                                        <div class="col-8">
-                                            <h4>Egg Sandwich</h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <h4 class="text-muted menu-price">$30</h4>
-                                        </div>
-                                    </div>
-                                    <p>Meat Ball, Mie</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php 
+                            }
+                        ?>
                     </div>
+                    <div class="d-flex justify-content-around">
+                        <a href="#" class="btn-primary mt-3">Breakfast</a>
+                        <a href="#" class="btn-primary mt-3">Diner / Lunch</a>
+                    </div> 
+
                 </div>
-            </div>
+            </div>            
         </section>
         <!-- End of menu Section -->
         <!-- Testimonial Section-->

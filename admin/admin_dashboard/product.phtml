@@ -1,0 +1,57 @@
+<html>
+    <head>
+    <title>Products</title>
+    <link rel="stylesheet" href="../../bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/loginc.css" class="css">
+    <link rel="stylesheet" href="../../css/style.css" class="css">
+    </head>
+    <body>
+   
+
+      <div class="container">
+      <div class="shadow-lg bg-white rounded testmarg">
+      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
+      <div class="text-center">
+      <img src="../../img/logo.png" alt="FoodZone"><br><br>
+          <h1>Add Product</h1><br><br>
+          </div>
+            <div class="form-group">
+            <label for="name"> Name </label>
+            <input type="text" name="name" placeholder="prod name" class="form-control" required> 
+            </div>
+
+            <div class="form-group">
+            <label for="price"> Price </label>
+            <input type="number" name="price" placeholder="Product Price"  id="price" class="form-control" required>
+            <span class="text-danger"><?php if (isset($price_error)) echo $price_error; ?></span>  
+            </div>
+
+            <div class="form-group">
+                <label class="form-label-group" for="desc"> Description </label>
+                <textarea name="desc" id="desc" cols="60" rows="10" placeholder="Description"></textarea>
+                <span class="text-danger"><?php if (isset($desc_error)) echo $desc_error; ?></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label-group" for="type"> Type </label>
+                <select name="type" class="form-control" required>
+                    <option value="none" default> Choose Type </option>
+                    <option value="breakfast"> Breakfast </option>
+                    <option value="lunch"> Lunch/Diner </option>
+                </select>
+                <span class="text-danger"><?php if (isset($type_error)) echo $type_error; ?></span>
+            </div>
+    
+            <div class="form-group">
+                <input type="file" class="form-controle" name="pic">
+            </div>
+            <span class="text-danger"><?php if (isset($file_error)) echo $file_error; ?></span>
+
+        <div>
+            <button  type="submit" name="submit" class="btn btn-primary btn-shadow btn-lg mt-3" >Valider</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            </form>
+      </div>
+      </div>
+      <script src="../../bootstrap4/js/bootstrap.min.js"></script>
+            </body>
+</html>

@@ -1,12 +1,15 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <?php
+require 'dash_classes/product.class.php';
 session_start();
 if(isset($_SESSION['email']) == ""){
   header('location:../login_to_admin_panel/admin.php');
 }
+
+$prod = new Produit;
+$res = $prod->getallprod();
+
 
 ?>
 <head>
@@ -139,16 +142,7 @@ if(isset($_SESSION['email']) == ""){
         </div>
       </div>
 
-        <!-- Area Chart Example-->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-chart-area"></i>
-            Area Chart Example</div>
-          <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
-          </div>
-          
-        </div>
+
 
         <!-- DataTables Example -->
         <div class="card mb-3">
@@ -160,33 +154,29 @@ if(isset($_SESSION['email']) == ""){
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>desciption</th>
+                    <th>price</th>
+                    <th>picture</th>
+                    <th>Operation</th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                </tfoot>
                 <tbody>
+                <?php while($data = $res->fetch())
+                {    
+                ?>
                   <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td><?php echo $data['pid'];?></td>
+                    <td><?php echo $data['name'];?></td>
+                    <td><?php echo $data['description'];?></td>
+                    <td><?php echo $data['price'];?></td>
+                    <td><img src="../uploads/<?php echo $data['file'];?>"alt="img" style="width:50px;height:50px;"></td>
+                    <td><a class="btn btn-primary" href="update.php?id=<?php echo $data['pid'];?>">Update</a>
+                    <td><a class="btn btn-danger" href="delete.php?id=<?php echo $data['pid'];?>">delete</a>
+                    </td>
                   </tr>
+                <?php }?>
                 </tbody>
               </table>
             </div>
