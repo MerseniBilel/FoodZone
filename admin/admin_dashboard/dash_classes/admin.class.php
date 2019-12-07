@@ -29,7 +29,16 @@ class Adminstrator
         } catch (PDOException $ex) {
             echo $ex->getMessage();
         }
-    }
+	}
+	
+
+	public function listemploys(){
+		$req = 'SELECT * FROM employé ';
+		$result = $this->pdo->prepare($req);
+		$result->execute();
+		return $result;
+	}
+
 
     public function send_email($name,$email,$password){
 

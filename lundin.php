@@ -10,6 +10,7 @@ $pr = $db->connectDB();
 $result = $pr->prepare($req);
 $result->execute();
 $data = $result->fetch();
+
 ?>
 <head>
 
@@ -146,7 +147,7 @@ $data = $result->fetch();
                             </style>
                                 <a href="#" class="btn btn-outline-danger">
                                     <i class="fa fa-shopping-cart" style="opacity:1"></i>
-                                    &nbsp;&nbsp;<span class="badge badge-sm-light">4</span>
+                                    &nbsp;&nbsp;<span class="badge badge-sm-light " id="success"></span>
                                 </a>
                             </li>
                             <?php }else {?>
@@ -187,7 +188,7 @@ $data = $result->fetch();
                                         </div>
                                     </div>
                                     <p><?php echo $data['description']?></p>
-                                    <button class="btn btn-primary mt-3">Buy</button>
+                                    <button class="btn btn-primary mt-3 btn-for_jquery" id="id_<?php echo $data['pid'] ?>">Buy</button>
                                 </div>
                             </div>
                         </div>
@@ -277,6 +278,31 @@ $data = $result->fetch();
 
     <!-- Main JS -->
     <script src="js/app.min.js "></script>
+
+    <script>
+
+/*
+$("#btn").click(function() {
+    var pid = $("#pid").val();
+    }
+*/
+$(document).ready(function(){
+
+$(".btn-for_jquery").click(function(){
+var pid = $(this).attr('id');
+
+$.post("panier.php", //Required URL of the page on server
+{ // Data Sending With Request To Server
+product:pid
+},
+function(response,status){ // Required Callback Function
+    $('#success').html(response); //"response" receives - whatever written in echo of above PHP script.
+
+});
+});
+});
+</script>
+
 </body>
 
 </html

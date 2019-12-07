@@ -61,11 +61,9 @@ $res = $prod->getallprod();
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="add_empl.php">add employe</a>
           <a class="dropdown-item" href="product.php">Add product</a>
           <a class="dropdown-item" href="cars.php">Add car</a>
-          <a class="dropdown-item" href="#">See orders</a>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
       </li>
@@ -130,7 +128,7 @@ $res = $prod->getallprod();
                 </div>
                 <div class="mr-5">List of employs</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
+              <a class="card-footer text-white clearfix small z-1" href="listemploys.php">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -148,7 +146,7 @@ $res = $prod->getallprod();
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Table Example</div>
+            Liste of Product</div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -173,7 +171,7 @@ $res = $prod->getallprod();
                     <td><?php echo $data['price'];?></td>
                     <td><img src="../uploads/<?php echo $data['file'];?>"alt="img" style="width:50px;height:50px;"></td>
                     <td><a class="btn btn-primary" href="update.php?id=<?php echo $data['pid'];?>">Update</a>
-                    <td><a class="btn btn-danger" href="delete.php?id=<?php echo $data['pid'];?>">delete</a>
+                    <a class="btn btn-danger" href="delete.php?id=<?php echo $data['pid'];?>">delete</a></td>
                     </td>
                   </tr>
                 <?php }?>

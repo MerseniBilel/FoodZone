@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+if(empty($_GET)){
+    header('location:index.php');
+}
 require "client/class/dbconnect.class.php";
 session_start();
 $req = 'SELECT * FROM produits WHERE pid = :pid';
@@ -146,7 +149,7 @@ $data = $result->fetch();
                             </style>
                                 <a href="#" class="btn btn-outline-danger">
                                     <i class="fa fa-shopping-cart" style="opacity:1"></i>
-                                    &nbsp;&nbsp;<span class="badge badge-sm-light">4</span>
+                                    &nbsp;&nbsp;<span class="badge badge-sm-light" id="success"></span>
                                 </a>
                             </li>
                             <?php }else {?>
@@ -179,7 +182,7 @@ $data = $result->fetch();
                 <h5 class="mt-4"><?php echo $data['price'];?> <sup>TND</sup></h5>
             </div>
             </div>
-            <button class="btn btn-primary mt-4">add to cart</button>          
+            <button class="btn btn-primary mt-4 btn-for_jquery" id="id_<?php echo $data['pid'] ?>">buy</button>          
             </div>
         </section>
 
@@ -263,6 +266,30 @@ $data = $result->fetch();
 
     <!-- Main JS -->
     <script src="js/app.min.js "></script>
+
+    <script>
+
+/*
+$("#btn").click(function() {
+    var pid = $("#pid").val();
+    }
+*/
+$(document).ready(function(){
+
+$(".btn-for_jquery").click(function(){
+var pid = $(this).attr('id');
+
+$.post("panier.php", //Required URL of the page on server
+{ // Data Sending With Request To Server
+product:pid
+},
+function(response,status){ // Required Callback Function
+    $('#success').html(response); //"response" receives - whatever written in echo of above PHP script.
+
+});
+});
+});
+</script>
 </body>
 
 </html
