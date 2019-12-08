@@ -39,6 +39,15 @@ class Adminstrator
 		return $result;
 	}
 
+	public function delete_employ($eid){
+		$req = 'DELETE FROM employé WHERE eid = :eid';
+		$result = $this->pdo->prepare($req);
+		$result->bindParam(':eid',$eid);
+		if($result->execute()){
+			return $result;
+		}
+	}
+
 
     public function send_email($name,$email,$password){
 

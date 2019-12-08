@@ -1,6 +1,9 @@
 <?php 
 require "panier/classes/pnaier.class.php";
 session_start();
+if(isset($_SESSION['name']) == ''){
+    header('location:client/loginc');
+}
 $panier = new Panier;
 $res = $panier->whatinpanier();
 $data = $res->fetch();
@@ -178,7 +181,11 @@ $data = $res->fetch();
                     </tr>
                 </thead>
                 <tbody>
-                <?php while($data = $res->fetch()) {?>
+                <?php 
+                $total_prix = 0;
+                while($data = $res->fetch()) {
+                    $total_prix += $data['price'];
+                    ?>
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
@@ -192,7 +199,7 @@ $data = $res->fetch();
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong><?php echo $data['price']?> <sup>TND</sup></strong></td>
                         <td class="col-sm-1 col-md-1">
-                        <a href="#" class="btn btn-danger">
+                        <a href="deletepanier.php?id=<?php echo $data['pid']?>" class="btn btn-danger">
                         <i class="fa fa-trash"></i>
                         </a>
                         </td>
@@ -200,6 +207,8 @@ $data = $res->fetch();
                 <?php }?>
                 </tbody>
             </table>
+            <h5>shipping : Free</h5>
+            <h3> Total : <?php echo $total_prix ;?> <sup>TND</sup></h3>
             <a href="index.php" class="btn btn-default">
                 <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
             </a>

@@ -9,6 +9,6 @@ while($data = $res->fetch()){
 
 $res3 = $panier->resetpanier();
 
-header('location:index.php');
+header('location:index.php?checkout=done');
 
 ?>
