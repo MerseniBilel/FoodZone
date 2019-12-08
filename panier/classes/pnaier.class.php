@@ -42,5 +42,30 @@
 
         }
 
+        public function whatinpanier(){
+            $sql = 'SELECT p.pid ,p.name , p.price , p.file , c.qty , c.cid from produits p JOIN chariot c on c.pid = p.pid';
+            $result  = $this->cnx->prepare($sql);
+            if($result->execute()){
+                return $result;
+            }
+        }
+
+        public function insertinto_order($qty,$status,$pid,$cid){
+            $sql = 'INSERT INTO ordre (qty,status,pid,cid) VALUES (:qty, :status, :pid, :cid)';
+            $result = $this->cnx->prepare($sql);
+            $result->bindParam(':qty',$qty);
+            $result->bindParam(':status',$status);
+            $result->bindParam(':pid',$pid);
+            $result->bindParam(':cid',$cid);
+            $result->execute();
+            return $result;
+        }
+
+        public function resetpanier(){
+            $sql = 'DELETE FROM chariot';
+            $result = $this->cnx->prepare($sql);
+            $result->execute();
+            return $result;
+        }
 
     }
