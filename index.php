@@ -145,7 +145,7 @@ $data = $result->fetch();
                                     color:white !important;
                                 }
                             </style>
-                                <a href="#" class="btn btn-outline-danger">
+                                <a href="listepanier.php" class="btn btn-outline-danger">
                                     <i class="fa fa-shopping-cart" style="opacity:1"></i>
                                     &nbsp;&nbsp;<span class="badge badge-sm-light" id="success"></span>
                                 </a>

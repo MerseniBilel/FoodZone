@@ -1,19 +1,14 @@
+<?php 
+require "panier/classes/pnaier.class.php";
+session_start();
+$panier = new Panier;
+$res = $panier->whatinpanier();
+$data = $res->fetch();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-if(empty($_GET)){
-    header('location:index.php');
-}
-require "client/class/dbconnect.class.php";
-session_start();
-$req = 'SELECT * FROM produits WHERE pid = :pid';
-$db = new BasesDonnees;
-$pr = $db->connectDB(); 
-$result = $pr->prepare($req);
-$result->bindParam(':pid',$_GET['id']);
-$result->execute();
-$data = $result->fetch();
-?>
+
 <head>
 
     <meta charset="utf-8">
@@ -170,89 +165,60 @@ $data = $result->fetch();
             </div>
         </nav>
 
-        <section id="gtco-menu" class="section-padding">
-            <div class="container">
-            <div class="row">
-            <div class="col-md-6">
-                <img src="admin/uploads/<?php echo $data['file'];?>" style="width:500px; border-radius:50px;" alt="img">
-            </div>
-            <div class="col-md-6">
-                <h3 class="mt-3"><?php echo $data['name'];?> (<?php echo $data['type'];?>) </h3>
-                <h5 class="mt-3"><?php echo $data['description'];?></h5>
-                <h5 class="mt-4"><?php echo $data['price'];?> <sup>TND</sup></h5>
-            </div>
-            </div>
-            <button class="btn btn-primary mt-4 btn-for_jquery" id="id_<?php echo $data['pid'] ?>">buy</button>          
-            </div>
-        </section>
-
-
-
-                <!-- End of Reservation Section -->
-                <footer class="mastfoot pb-5 bg-white section-padding pb-0">
-            <div class="inner container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="footer-widget pr-lg-5 pr-0">
-                            <img src="img/logo.png" class="img-fluid footer-logo mb-3" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et obcaecati quisquam id sit
-                                omnis explicabo voluptate aut placeat, soluta, nisi ea magni facere, itaque incidunt
-                                modi? Magni, et voluptatum dolorem.</p>
-                            <nav class="nav nav-mastfoot justify-content-start">
-                                <a class="nav-link" href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a class="nav-link" href="#">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a class="nav-link" href="#">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </nav>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="footer-widget px-lg-5 px-0">
-                            <h4>Open Hours</h4>
-                            <ul class="list-unstyled open-hours">
-                                <li class="d-flex justify-content-between"><span>Monday</span><span>9:00 - 24:00</span>
-                                </li>
-                                <li class="d-flex justify-content-between"><span>Tuesday</span><span>9:00 - 24:00</span>
-                                </li>
-                                <li class="d-flex justify-content-between"><span>Wednesday</span><span>9:00 -
-                                        24:00</span></li>
-                                <li class="d-flex justify-content-between"><span>Thursday</span><span>9:00 -
-                                        24:00</span></li>
-                                <li class="d-flex justify-content-between"><span>Friday</span><span>9:00 - 02:00</span>
-                                </li>
-                                <li class="d-flex justify-content-between"><span>Saturday</span><span>9:00 -
-                                        02:00</span></li>
-                                <li class="d-flex justify-content-between"><span>Sunday</span><span> Closed</span></li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="footer-widget pl-lg-5 pl-0">
-                            <h4>Newsletter</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                            <form id="newsletter">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" id="emailNewsletter"
-                                        aria-describedby="emailNewsletter" placeholder="Enter email">
-                                </div>
-                                <button type="submit" class="btn btn-primary w-100">Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php while($data = $res->fetch()) {?>
+                    <tr>
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="admin/uploads/<?php echo $data['file']?>" style="width: 50px; height: 50px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><?php echo $data['name']?></h4>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <input type="text" class="form-control"  value="<?php echo $data['qty']?>">
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong><?php echo $data['price']?> <sup>TND</sup></strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <a href="#" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                        </a>
+                        </td>
+                    </tr>
+                <?php }?>
+                </tbody>
+            </table>
+            <a href="index.php" class="btn btn-default">
+                <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+            </a>
+                    <style>
+                        .btn-success:hover{
+                            color: aliceblue;
+                        }
+                    </style>
+            <a href="checkout.php" class="btn btn-success">
+                Checkout <span class="glyphicon glyphicon-play"></span>
+            </a>
+        </div>
     </div>
-    </div>
-    <!-- External JS -->
+</div>
+
+
+
+
+            <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="vendor/bootstrap/popper.min.js"></script>
@@ -266,30 +232,6 @@ $data = $result->fetch();
 
     <!-- Main JS -->
     <script src="js/app.min.js "></script>
-
-    <script>
-
-/*
-$("#btn").click(function() {
-    var pid = $("#pid").val();
-    }
-*/
-$(document).ready(function(){
-
-$(".btn-for_jquery").click(function(){
-var pid = $(this).attr('id');
-
-$.post("panier.php", //Required URL of the page on server
-{ // Data Sending With Request To Server
-product:pid
-},
-function(response,status){ // Required Callback Function
-    $('#success').html(response); //"response" receives - whatever written in echo of above PHP script.
-
-});
-});
-});
-</script>
 </body>
 
 </html
