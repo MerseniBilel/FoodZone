@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>admin panel</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../style/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="../style/css/sb-admin.css" rel="stylesheet">
+
+</head>
+<body class="bg-dark">
+  <div class="container" style="padding: 9%;">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header text-center"><img src="../style/img/logo.png" alt="logo"></div>
+      <div class="card-body">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" id="inputName" name="name" value="<?= $_POST['name'] ?? '' ?>"class="form-control" placeholder="Name" required="">
+              <label for="inputName">Name</label>
+              <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="number" id="inputphn" name="phone" value="<?= $_POST['phone'] ?? '' ?>"class="form-control" placeholder="phone" required="">
+              <label for="inputphn">phone</label>
+              <span class="text-danger"><?php if (isset($phone_error)) echo $phone_error; ?></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" name="email" value="<?= $_POST['email'] ?? '' ?>"class="form-control" placeholder="Email address" required="">
+              <label for="inputEmail">Email address</label>
+              <span class="text-danger"><?php if (isset($email_error)) echo $email_error; ?></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password" id="inputpass" name="password" class="form-control" placeholder="your password" required="">
+              <label for="inputpass">Password</label>
+              <span class="text-danger"><?php if (isset($password_error)) echo $password_error; ?></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password" id="inputpassagain" name="passwordagain" class="form-control" placeholder="your password again" required="">
+              <label for="inputpassagain">Confirm Password</label>
+              <span class="text-danger"><?php if (isset($cpassword_error)) echo $cpassword_error; ?></span>
+            </div>
+            <div class="form-group">
+            <div class="form-label-group">
+                <select class="browser-default custom-select mt-3 mb-3" name="type">
+                    <option selected>Select type</option>
+                    <option value="admin">admin</option>
+                    <option value="employe">employe</option>
+                </select>
+                <span class="text-danger"><?php if (isset($type_error)) echo $type_error; ?></span>
+            </div>
+            </div>
+          <button class="btn btn-danger btn-block" type="submit" name="submit">add employe</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../style/vendor/jquery/jquery.min.js"></script>
+  <script src="../style/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../style/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</body>
+
+</html>

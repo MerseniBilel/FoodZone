@@ -169,7 +169,7 @@ $res = $emp->listemploys();
                     <td><?php echo $data['name'];?></td>
                     <td><?php echo $data['phno'];?></td>
                     <td><?php echo $data['email'];?></td>
-                    <td><a class="btn btn-danger" href="delete.php?id=<?php echo $data['eid'];?>">delete</a></td>
+                    <td><a class="btn btn-danger" href="deletemploy.php?id=<?php echo $data['eid'];?>">delete</a></td>
                   </tr>
                 <?php }?>
                 </tbody>

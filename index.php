@@ -1,6 +1,7 @@
 <?php 
 require "client/class/dbconnect.class.php";
 session_start();
+
 $rq = "SELECT * FROM produits ORDER BY pid LIMIT 10";
 $db = new BasesDonnees;
 $pr = $db->connectDB(); 
@@ -161,6 +162,19 @@ $data = $result->fetch();
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="client/register.php">Sign Up</a>
                             </li>
+                            
+                            <li class="nav-item ml-5">
+                            <style>
+                                .btn-outline-danger:hover {
+                                    color:white !important;
+                                }
+                            </style>
+                                <a href="listepanier.php" class="btn btn-outline-danger">
+                                    <i class="fa fa-shopping-cart" style="opacity:1"></i>
+                                    &nbsp;&nbsp;<span class="badge badge-sm-light" id="success"></span>
+                                </a>
+                            </li>
+
                             <?php } ?>
                         </div>
                     </ul>

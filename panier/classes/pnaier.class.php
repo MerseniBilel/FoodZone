@@ -68,4 +68,12 @@
             return $result;
         }
 
+        public function delete_panier($pid){
+            $sql = 'DELETE FROM chariot WHERE pid = :pid';
+            $result = $this->cnx->prepare($sql);
+            $result->bindParam(':pid',$pid);
+            $result->execute();
+            return $result;
+        }
+
     }

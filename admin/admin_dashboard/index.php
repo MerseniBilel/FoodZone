@@ -6,6 +6,10 @@
 session_start();
 if(isset($_SESSION['email']) == ""){
   header('location:../login_to_admin_panel/admin.php');
+}else{
+  if($_SESSION['type'] !="admin"){
+    header('location:../login_to_admin_panel/admin.php');
+  }
 }
 
 ?>
