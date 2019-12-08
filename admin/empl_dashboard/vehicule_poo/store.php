@@ -8,7 +8,7 @@
             $status = $_POST['status'];
             $vehiculenumber = $_POST['vehiculenumber'];
            }else{
-               header('location:ajout.php');
+               header('location:add_car.php');
            }
 
 
@@ -22,7 +22,7 @@
 
 
            }else{
-            header('location:ajout.php');
+            header('location:add_car.php');
            }
         
 

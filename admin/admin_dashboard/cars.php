@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>liste d'etudiants </title>
+    <title>Liste de véhicules </title>
 </head>
 <body>
     <div class="container">
         <div class="jumbotron mt-4">
-        <h1 class="text-center">Liste de véhicules : </h1>
+        <h1 class="text-center">Liste de véhicules  </h1>
+        <img src="vehicule_poo/007.png" alt="" width="150px" height="150px" class="">
+        
         </div>
     <table  class="table table-bordered">
     <tr>
@@ -42,7 +44,7 @@
 
     ?>
     </table>
-    <a href="vehicule_poo/ajout.php" class="btn btn-primary ">ajouter vehicule </a>
+    <a href="vehicule_poo/add_car.php" class="btn btn-primary ">ajouter vehicule </a>
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
