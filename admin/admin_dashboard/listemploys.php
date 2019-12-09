@@ -9,6 +9,9 @@ if(isset($_SESSION['email']) == ""){
 $emp = new Adminstrator;
 $res = $emp->listemploys();
 
+$res2 = $emp->number_of_orders();
+$data2 = $res2->fetch();
+
 
 
 
@@ -38,7 +41,7 @@ $res = $emp->listemploys();
 
   <nav class="navbar navbar-expand navbar-light static-top"  style="background-color: #F4EDE5;">
 
-    <a class="navbar-brand mr-1" href="index.html"><img style="width:40px;height:30px;" src="../style/img/logo.png" alt=""></a>
+    <a class="navbar-brand mr-1" href="index.php"><img style="width:40px;height:30px;" src="../style/img/logo.png" alt=""></a>
 
 
 
@@ -74,7 +77,7 @@ $res = $emp->listemploys();
   <!-- Breadcrumbs-->
   <ol class="breadcrumb mt-2">
     <li class="breadcrumb-item">
-      <a href="#">Dashboard</a>
+      <a href="index.php">Dashboard</a>
     </li>
     <li class="breadcrumb-item active">Overview</li>
   </ol>
@@ -95,9 +98,9 @@ $res = $emp->listemploys();
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-shopping-cart"></i>
                 </div>
-                <div class="mr-5">123 New Orders!</div>
+                <div class="mr-5"><?php echo $data2['orders'] ;?> Order</div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
+              <a class="card-footer text-white clearfix small z-1" href="orders.php">
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>

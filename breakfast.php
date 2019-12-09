@@ -102,13 +102,13 @@ $data = $result->fetch();
                                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item mr-5">
-                                <a class="nav-link" href="about.html">About</a>
+                                <a class="nav-link" href="index.php#about">About</a>
                             </li>
 
                         </div>
                     </ul>
 
-                    <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
+                    <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="index.php">
                         <img src="img/logo.png" alt="">
                     </a>
                     <ul class="navbar-nav d-flex justify-content-between">

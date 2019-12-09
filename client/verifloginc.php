@@ -13,6 +13,7 @@ if(!empty($_POST)){
     if ($data = $x->fetch()){
         if(password_verify($mdp,$data['pwd'])){
             session_start(); 
+            $_SESSION['cid'] = $data['cid'];
             $_SESSION['name'] = $data['name'];
             $_SESSION['email'] = $data['email'];
             $_SESSION['tel'] = $data['phonenumber'];

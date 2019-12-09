@@ -104,13 +104,13 @@ $data = $result->fetch();
                                 <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item mr-5">
-                                <a class="nav-link" href="about.html">About</a>
+                                <a class="nav-link" href="#about">About</a>
                             </li>
 
                         </div>
                     </ul>
 
-                    <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
+                    <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="index.php">
                         <img src="img/logo.png" alt="">
                     </a>
                     <ul class="navbar-nav d-flex justify-content-between">
@@ -187,7 +187,7 @@ $data = $result->fetch();
                     <div class="col-lg-6 hero-left">
                         <h1 class="display-4 mb-5">We Serve <br>Delicious Foods!</h1>
                         <div class="mb-2">
-                            <a class="btn btn-primary btn-shadow btn-lg" href="#" role="button">Explore Menu</a>
+                            <a class="btn btn-primary btn-shadow btn-lg" href="lundin.php" role="button">Explore Menu</a>
 
                         </div>
 
@@ -237,7 +237,7 @@ $data = $result->fetch();
                             style="background-image: url(img/hero-2.jpg);">
 
                         </div>
-                        <div class="col-sm-7 py-5 pl-md-0 pl-4">
+                        <div class="col-sm-7 py-5 pl-md-0 pl-4" id="about">
                             <div class="heading-section pl-lg-5 ml-md-5">
                                 <span class="subheading">
                                     About
@@ -280,8 +280,8 @@ $data = $result->fetch();
                                 <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ea
                                     vero alias perferendis quas animi doloribus voluptates. Atque explicabo ea nesciunt
                                     provident libero qui eum, corporis esse quos excepturi soluta?</p>
-                                <h3 class="special-dishes-price">$29.99</h3>
-                                <a href="#" class="btn-primary mt-3">book a table</a>
+                                <h3 class="special-dishes-price">29.99<sup>TND</sup></h3>
+                                <a href="lundin.php" class="btn-primary mt-3">Go to Dinner/lunch</a>
                             </div>
                         </div>
                         <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
@@ -299,8 +299,8 @@ $data = $result->fetch();
                                 <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis,
                                     accusamus culpa quam amet ipsam odit ea doloremque accusantium quo, itaque possimus
                                     eius. In a quis quibusdam omnis atque vero dolores!</p>
-                                <h3 class="special-dishes-price">$49.99</h3>
-                                <a href="#" class="btn-primary mt-3">book a table <span><i
+                                <h3 class="special-dishes-price">49.99<sup>TND</sup></h3>
+                                <a href="lundin.php"  class="btn-primary mt-3">Go to Dinner/lunch<span><i
                                             class="fa fa-long-arrow-right"></i></span></a>
                             </div>
                         </div>
@@ -352,8 +352,8 @@ $data = $result->fetch();
                         ?>
                     </div>
                     <div class="d-flex justify-content-around">
-                        <a href="#" class="btn-primary mt-3">Breakfast</a>
-                        <a href="#" class="btn-primary mt-3">Diner / Lunch</a>
+                        <a href="breakfast.php" class="btn-primary mt-3">Breakfast</a>
+                        <a href="lundin.php" class="btn-primary mt-3">Diner / Lunch</a>
                     </div> 
 
                 </div>
@@ -544,30 +544,12 @@ $data = $result->fetch();
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="section-content bg-white p-5 shadow">
-                            <div class="heading-section text-center">
-                                <span class="subheading">
-                                    Reservation
-                                </span>
-                                <h2>
-                                    Book Now
-                                </h2>
-                            </div>
-                            <form method="post" name="contact-us" action="">
-                                <div class="row">
-                                    <div class="col-md-12 form-group">
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            placeholder="Name">
-                                    </div>
-                                    <div class="col-md-12 form-group mt-3">
-                                        <input type="text" class="form-control" id="email" name="email"
-                                            placeholder="Email">
-                                    </div>
+                           
+                              
                                     <div class="col-md-12 text-center">
-                                        <button class="btn btn-primary btn-shadow btn-lg mt-3" type="submit"
-                                            name="submit">SGIN IN</button>
+                                        <a class="btn btn-primary btn-shadow btn-lg mt-3" href="client/loginc.php"
+                                            name="submit">SGIN IN</a>
                                     </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
