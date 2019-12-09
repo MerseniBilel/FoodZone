@@ -30,6 +30,13 @@
             }
         }
 
+        public function number_of_orders(){
+            $req = 'SELECT count(*)  as orders FROM ordre ';
+            $result = $this->cnx->prepare($req);
+            $result->execute();
+            return $result;
+        }
+
 
         public function getallprod(){
             $req = 'SELECT * FROM produits';
